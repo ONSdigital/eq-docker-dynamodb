@@ -16,6 +16,9 @@ VOLUME $DATADIR
 
 COPY entrypoint.sh /root/entrypoint.sh
 COPY create_tables/submitted_responses.sh /root/create_tables/submitted_responses.sh
+COPY create_tables/questionnaire_state.sh /root/create_tables/questionnaire_state.sh
+COPY create_tables/eq_session.sh /root/create_tables/eq_session.sh
+COPY create_tables/used_jti_claim.sh /root/create_tables/used_jti_claim.sh
 
 # Configure a sane default Java heap size (that can be overridden).
 ENV JAVA_OPTS "-Xmx256m"
