@@ -7,4 +7,8 @@ aws dynamodb --endpoint http://localhost:8000/ create-table \
 	--key-schema AttributeName=tx_id,KeyType=HASH \
 	--provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
 
+aws dynamodb update-time-to-live \
+    --table-name dev-submitted-responses \
+    --time-to-live-specification Enabled=true,AttributeName=valid_until
+
 aws dynamodb --endpoint http://localhost:8000/ list-tables

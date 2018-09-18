@@ -7,4 +7,8 @@ aws dynamodb --endpoint http://localhost:8000/ create-table \
 	--key-schema AttributeName=jti_claim,KeyType=HASH \
 	--provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
 
+aws dynamodb update-time-to-live \
+    --table-name dev-used-jti-claim \
+    --time-to-live-specification Enabled=true,AttributeName=expires
+
 aws dynamodb --endpoint http://localhost:8000/ list-tables
